@@ -1,0 +1,17 @@
+.button {
+  height: 40px;
+  width: 100%;
+  background: inherit;
+  border: 1px solid gray;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #ababab;
+  }
+}
+.active {
+  background-color: brown;
+}
