@@ -1,18 +1,22 @@
-import { Product } from "model";
 import React from "react";
 import { ProductItem } from "./ProductItem";
 import styles from "./Product.module.scss";
+import { useSelector } from "react-redux";
 
-interface ProductListProps {
-  list: Product[];
-}
+import { getLoading, getProducts } from "../../store/productSlice";
 
-export const ProductList: React.FC<ProductListProps> = ({ list }) => {
+export const ProductList: React.FC = () => {
+  const list = useSelector(getProducts);
+  const loading = useSelector(getLoading);
   return (
     <div className={styles["product-list"]}>
-      {list.map((product) => (
-        <ProductItem product={product} />
-      ))}
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        list.map((product) => (
+          <ProductItem key={product.id} product={product} />
+        ))
+      )}
     </div>
   );
 };

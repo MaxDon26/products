@@ -1,3 +1,5 @@
+import { Product } from "model";
+
 const mockData = [
   {
     id: "rec43w3ipXvP28vog",
@@ -85,7 +87,7 @@ const mockData = [
   },
 ];
 
-export const getData = () =>
+export const getMockData = (): Promise<Product[]> =>
   new Promise((resolve) => {
     setTimeout(() => {
       resolve(mockData);
